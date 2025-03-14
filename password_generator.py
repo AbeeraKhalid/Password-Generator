@@ -1,5 +1,5 @@
 #PASSWORD-GENERATOR BY USING STREAMLIT,PYTHON, AND UV
-import streamlit as st  
+import streamlit as st   # type: ignore
 import random  # Import random for generating random choices
 import string  # Import string to use predefined character sets
 
@@ -34,21 +34,6 @@ use_special = st.checkbox(
 )  # Checkbox for special characters (@!#$^&?*)
 
 # Button to generate password
-st.markdown("""
-<style>
-.stbutton button {
-    background-color: #007bff;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-}
-.stbutton button:hover {
-    background-color: #0056b3;
-}
-</style>
-""", unsafe_allow_html=True)
 
 
 if st.button("Generate Password"):
