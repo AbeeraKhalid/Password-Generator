@@ -10,7 +10,7 @@ def generate_password(length, use_digits, use_special):
 
     if use_digits:
         characters += string.digits  # Adds numbers (0-9) if selected
-
+  
     if use_special:
         characters += (
             string.punctuation
@@ -21,19 +21,36 @@ def generate_password(length, use_digits, use_special):
 
 
 # Streamlit UI setup
-st.title("Simple-Password-Generator")  
+st.title("🔐Simple-Password-Generator")  
 
 # User input: password length (slider to select length between 7 and 38 characters)
 
-length = st.slider("Select password length:", min_value=7, max_value=38, value=12)
+length = st.slider("Select password length:", min_value=7, max_value=35, value=15)
 
 # Checkbox options for including numbers and special characters in the password
 use_digits = st.checkbox("Include numbers")  # Checkbox for numbers (0-9)
 use_special = st.checkbox(
     "Include special characters"
-)  # Checkbox for special characters (!@#$%^&*)
+)  # Checkbox for special characters (@!#$^&?*)
 
 # Button to generate password
+st.markdown("""
+<style>
+.stbutton button {
+    background-color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+.stbutton button:hover {
+    background-color: #0056b3;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 if st.button("Generate Password"):
     password = generate_password(
 
@@ -43,5 +60,5 @@ if st.button("Generate Password"):
     st.write(f"Generated Password: `{password}`")  
     st.write("----------------------------------")
     st.write("Thank you for using the password generator🤗💐!")
-    st.write("Created By [Abeera Khalid](https://github.com/AbeeraKhalid)❤️")
+    st.write("Created By [Abeera Khalid](https://www.linkedin.com/in/abeera-m-khalid-/)❤️")
 
